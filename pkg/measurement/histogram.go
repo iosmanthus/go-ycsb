@@ -70,7 +70,7 @@ func newHistogram(p *properties.Properties) *histogram {
 }
 
 func (h *histogram) Measure(latency time.Duration) {
-	n := int64(latency / time.Microsecond)
+	n := int64(latency)
 
 	atomic.AddInt64(&h.sum, n)
 	atomic.AddInt64(&h.count, 1)
